@@ -1,3 +1,18 @@
+@font-face {
+  font-family: Inter;
+  src: url(./assets/fonts/inter/Inter-VariableFont_slnt_wght.ttf);
+}
+
+@font-face {
+  font-family: Lora;
+  src: url(./assets/fonts/lora/Lora-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: Inconsolata;
+  src: url(./assets/fonts/inconsolata/Inconsolata-VariableFont_wdth_wght.ttf);
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
