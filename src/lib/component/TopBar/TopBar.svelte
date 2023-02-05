@@ -1,8 +1,9 @@
 <script lang="ts">
-  import Toggle from './toggle.svelte'
+  import Toggle from '../Toggle/Toggle.svelte'
 
-  import LogoSvg from '../../assets/images/logo.svg'
-  import ThemeIconSvg from '../../assets/images/icon-moon.svg'
+  import LogoSvg from '../../../assets/images/logo.svg'
+  import ThemeIconSvg from '../../../assets/images/icon-moon.svg'
+  import SelectInput from '../SelectInput/SelectInput.svelte'
 
   let isDarkTheme = true
 </script>
@@ -11,7 +12,7 @@
   <img class="main-logo" src={LogoSvg} alt="logo" />
   <div class="right-container">
     <div class="topography">
-      <div>Sans Serif</div>
+      <SelectInput />
     </div>
     <div class="vertical-line" />
     <div class="theme-switch">
