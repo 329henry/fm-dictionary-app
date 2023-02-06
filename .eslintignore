@@ -1,0 +1,10 @@
+.eslint*
+.prettier*
+*.cjs
+vite.config.ts
+svelte.config.js
+*/public/
+dist/
+tsconfig.json
+# Dependency directories
+node_modules/
