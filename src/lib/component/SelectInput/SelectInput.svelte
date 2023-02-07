@@ -7,6 +7,7 @@
     { value: 'Mono', label: 'Mono' }
   ]
 
+  let container: HTMLDivElement
   let selected = optionList[0].value
   let isOpenDropdown = false
 
@@ -18,11 +19,25 @@
     selected = value
     isOpenDropdown = false
   }
+
+  function onWindowClick(e: any) {
+    if (!container.contains(e.target)) {
+      isOpenDropdown = false
+    }
+  }
 </script>
 
-<div class="select-container">
+<svelte:window on:click={onWindowClick} />
+
+<div class="select-container" bind:this={container}>
   <div class="selected" on:click={toggleDropdown}>
-    <div>{selected}</div>
+    <div
+      class:mono={selected === 'Mono'}
+      class:serif={selected === 'Serif'}
+      class:san_serif={selected === 'San Serif'}
+    >
+      {selected}
+    </div>
     <img class="arrow-down" src={ArrowDown} alt="click-dropdown" />
   </div>
   {#if isOpenDropdown}
@@ -49,6 +64,20 @@
     align-items: center;
     font-size: 18px;
     font-weight: 700;
+  }
+
+  .selected > div {
+    &.mono {
+      font-family: 'Inconsolata', monospace;
+    }
+
+    &.serif {
+      font-family: 'Lora', serif;
+    }
+
+    &.san_serif {
+      font-family: 'Inter', sans-serif;
+    }
   }
 
   .arrow-down {
