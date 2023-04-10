@@ -1,18 +1,30 @@
 <script lang="ts">
-  import SearchIcon from '../../../assets/images/icon-search.svg'
+  import { createEventDispatcher } from 'svelte'
+  import SearchIcon from './assets/icon-search.svg'
 
-  const onInputChange = (event: any) => {
-    console.log(event.target.value)
+  let inputValue = ''
+
+  const dispatch = createEventDispatcher()
+
+  const onSearch = () => {
+    dispatch('search', inputValue)
   }
 
-  const onClickSearch = () => {
-    console.log('search')
+  const onEnterSearch = (event: KeyboardEvent) => {
+    if (event?.code === 'Enter') {
+      onSearch()
+    }
   }
 </script>
 
 <div class="input-container">
-  <input class="text-field" type="text" on:change={onInputChange} />
-  <div class="search-icon" on:click={onClickSearch} on:keydown={onClickSearch}>
+  <input
+    class="text-field"
+    type="text"
+    bind:value={inputValue}
+    on:keydown={onEnterSearch}
+  />
+  <div class="search-icon" on:click={onSearch}>
     <img src={SearchIcon} alt="search-icon" />
   </div>
 </div>

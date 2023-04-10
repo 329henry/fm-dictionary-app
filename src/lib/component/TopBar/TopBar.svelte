@@ -1,8 +1,8 @@
 <script lang="ts">
   import Toggle from '../Toggle/Toggle.svelte'
 
-  import LogoSvg from '../../../assets/images/logo.svg'
-  import ThemeIconSvg from '../../../assets/images/icon-moon.svg'
+  import LogoSvg from './assets/logo.svg'
+  import ThemeIconSvg from './assets/icon-moon.svg'
   import SelectInput from '../SelectInput/SelectInput.svelte'
 
   let isDarkTheme = true
