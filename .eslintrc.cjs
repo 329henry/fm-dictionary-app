@@ -2,22 +2,43 @@ const typescript = require('typescript')
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    node: true
   },
-  extends: 'standard-with-typescript',
-  overrides: [],
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'prettier',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking'
+  ],
+  overrides: [
+    {
+      files: ['*.svelte'],
+      processor: 'svelte3/svelte3',
+      rules: {
+        '@typescript-eslint/no-magic-numbers': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off'
+      }
+    }
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
-    tsconfigRootDir: __dirname
+    tsconfigRootDir: __dirname,
+    extraFileExtensions: ['.svelte'],
+    EXPERIMENTAL_useSourceOfProjectReferenceRedirect: true
   },
+  ignorePatterns: ['node_modules', '*.config.js', 'public'],
   settings: {
     'svelte3/typescript': () => typescript,
     'svelte3/ignore-warnings': warning => {
       return warning.code === 'a11y-click-events-have-key-events'
     }
   },
+  plugins: ['svelte3', '@typescript-eslint', 'prettier', 'import'],
   rules: {
     'prettier/prettier': 'error',
     'no-loss-of-precision': 'error',
@@ -238,6 +259,7 @@ module.exports = {
         checksVoidReturn: false
       }
     ],
-    'import/no-duplicates': 'error'
+    'import/no-duplicates': 'error',
+    '@typescript-eslint/indent': 'off'
   }
 }

@@ -1,9 +1,10 @@
 {
-  "arrowParens": "avoid",
-  "bracketSpacing": true,
-  "singleQuote": true,
-  "svelteSortOrder": "options-scripts-markup-styles",
-  "trailingComma": "none",
-  "endOfLine": "lf",
-  "semi": false
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "svelteSortOrder": "options-scripts-markup-styles",
+    "trailingComma": "none",
+    "endOfLine": "lf",
+    "semi": false,
+    "tabWidth": 2
 }
