@@ -3,11 +3,23 @@
   import SearchIcon from './assets/icon-search.svg'
 
   let inputValue = ''
+  let isEmpty = false
 
   const dispatch = createEventDispatcher()
 
+  const onChange = () => {
+    if (inputValue.trim() !== '') {
+      isEmpty = false
+    }
+  }
+
   const onSearch = () => {
-    dispatch('search', inputValue)
+    if (inputValue.trim() === '') {
+      isEmpty = true
+    } else {
+      isEmpty = false
+      dispatch('search', inputValue)
+    }
   }
 
   const onEnterSearch = (event: KeyboardEvent) => {
@@ -18,26 +30,36 @@
 </script>
 
 <div class="input-container">
-  <input
-    class="text-field"
-    type="text"
-    bind:value={inputValue}
-    on:keydown={onEnterSearch}
-  />
-  <div class="search-icon" on:click={onSearch}>
-    <img src={SearchIcon} alt="search-icon" />
+  <div class="input-row">
+    <input
+      class="text-field {isEmpty ? 'error' : ''}"
+      type="text"
+      bind:value={inputValue}
+      on:change={onChange}
+      on:keydown={onEnterSearch}
+    />
+    <div class="search-icon" on:click={onSearch}>
+      <img src={SearchIcon} alt="search-icon" />
+    </div>
   </div>
+  {#if isEmpty}
+    <div class="error-message">Whoops, can’t be empty…</div>
+  {/if}
 </div>
 
 <style lang="scss">
   .input-container {
     position: relative;
+    margin: 52px auto 45px;
+  }
+
+  .input-row {
     width: 100%;
     height: 64px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 52px auto 45px;
+    padding-bottom: 8px;
   }
 
   input {
@@ -54,6 +76,10 @@
     &:focus {
       border: 1px solid #a445ed;
     }
+
+    &.error {
+      border: 1px solid #ff5252;
+    }
   }
 
   .search-icon {
@@ -67,5 +93,11 @@
       width: 100%;
       height: 100%;
     }
+  }
+
+  .error-message {
+    text-align: left;
+    color: #ff5252;
+    font-size: 20px;
   }
 </style>
