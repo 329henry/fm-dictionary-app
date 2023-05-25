@@ -8,23 +8,26 @@
   $: inputValue = ''
 
   const searchWords = async () => {
-    console.log('api', inputValue, typeof inputValue)
     const res = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
     )
     return await res.json()
   }
 
-  const searchQuery = createQuery<TWord[], Error>({
+  $: searchQuery = createQuery<TWord[], Error>({
     queryKey: ['search', inputValue],
-    queryFn: searchWords
+    queryFn: searchWords,
+    enabled: inputValue !== '' && inputValue !== undefined,
+    staleTime: 1000 * 60,
   })
 
   const onClickSearch = (event: CustomEvent<string>) => {
-    console.log('event', event)
-    inputValue = event.detail
+    const newInputValue = event.detail.trim()
+    if (newInputValue !== '') {
+      inputValue = newInputValue
+    }
   }
-  $: console.log('inputValue', inputValue)
+
 </script>
 
 <TopBar />

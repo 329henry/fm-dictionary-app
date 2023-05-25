@@ -15,6 +15,6 @@
   main {
     width: 100vw;
     max-width: 738px;
-    height: 100vh;
+    height: calc(100vh - 2rem);
   }
 </style>
