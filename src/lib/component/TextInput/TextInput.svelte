@@ -7,11 +7,6 @@
 
   const dispatch = createEventDispatcher()
 
-  const onChange = () => {
-    if (inputValue.trim() !== '') {
-      isEmpty = false
-    }
-  }
 
   const onSearch = () => {
     if (inputValue.trim() === '') {
@@ -35,7 +30,6 @@
       class="text-field {isEmpty ? 'error' : ''}"
       type="text"
       bind:value={inputValue}
-      on:change={onChange}
       on:keydown={onEnterSearch}
     />
     <div class="search-icon" on:click={onSearch}>

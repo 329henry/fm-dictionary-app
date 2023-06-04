@@ -2,6 +2,7 @@
   import type { TWord } from 'src/lib/types/types'
   import PlayButton from '../PlayButton/PlayButton.svelte'
   import WordInfo from './WordInfo/WordInfo.svelte'
+  import NewWindowButton from '../NewWindowButton/NewWindowButton.svelte'
 
   export let wordData: TWord
 </script>
@@ -15,10 +16,18 @@
       </div>
     </div>
     <div class="play-button">
-      <PlayButton />
+      <PlayButton audioPathList={wordData.phonetics} />
     </div>
   </div>
-  <WordInfo wordData={wordData} />
+  <WordInfo {wordData} />
+  <hr />
+  <div class="source-container">
+    <div class="source-title">Source</div>
+    <div class="source-content">
+      <div class="source">{wordData.sourceUrls}</div>
+      <NewWindowButton url={wordData.sourceUrls[0]} />
+    </div>
+  </div>
 </div>
 
 <style lang="scss">
@@ -35,7 +44,7 @@
     align-items: center;
   }
 
-  .search-word{
+  .search-word {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -51,5 +60,24 @@
   .phonetic {
     font-size: 24px;
     color: #8f19e8;
+  }
+
+  .source-container {
+    display: flex;
+    color: #fff;
+    font-size: 14px;
+
+    .source-title {
+      padding-right: 20px;
+      color: #757575;
+    }
+
+    .source-content {
+      display: flex;
+      
+      & > .source {
+        padding-right: 9px;
+      }
+    }
   }
 </style>
