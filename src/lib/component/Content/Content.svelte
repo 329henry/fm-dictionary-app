@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { TWord } from 'src/lib/types/types'
-  import PlayButton from '../PlayButton/PlayButton.svelte'
-  import WordInfo from './WordInfo/WordInfo.svelte'
-  import NewWindowButton from '../NewWindowButton/NewWindowButton.svelte'
+  import type { TWord } from '$types/word-types'
+  import PlayButton from '$component/PlayButton/PlayButton.svelte'
+  import WordInfo from '$component/Content/WordInfo/WordInfo.svelte'
+  import NewWindowButton from '$component/NewWindowButton/NewWindowButton.svelte'
 
   export let wordData: TWord
 </script>
@@ -74,7 +74,7 @@
 
     .source-content {
       display: flex;
-      
+
       & > .source {
         padding-right: 9px;
       }

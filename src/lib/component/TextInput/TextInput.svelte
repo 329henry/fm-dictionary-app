@@ -1,12 +1,11 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
-  import SearchIcon from './assets/icon-search.svg'
+  import SearchIcon from '$component/TextInput/assets/icon-search.svg'
 
   let inputValue = ''
   let isEmpty = false
 
   const dispatch = createEventDispatcher()
-
 
   const onSearch = () => {
     if (inputValue.trim() === '') {

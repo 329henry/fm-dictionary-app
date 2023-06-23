@@ -1,10 +1,11 @@
 <script lang="ts">
-  import Toggle from '../Toggle/Toggle.svelte'
+  import Toggle from '$component/Toggle/Toggle.svelte'
 
-  import LogoSvg from './assets/logo.svg'
-  import ThemeIconSvg from './assets/icon-moon.svg'
-  import SelectInput from '../SelectInput/SelectInput.svelte'
+  import LogoSvg from '$component/TopBar/assets/logo.svg'
+  import ThemeIconSvg from '$component/TopBar/assets/icon-moon.svg'
+  import SelectInput from '$component/SelectInput/SelectInput.svelte'
 
+  export let handleToggle: (checked: boolean) => void
   let isDarkTheme = true
 </script>
 
@@ -16,7 +17,7 @@
     </div>
     <div class="vertical-line" />
     <div class="theme-switch">
-      <Toggle isChecked={isDarkTheme} />
+      <Toggle isChecked={isDarkTheme} {handleToggle} />
       <img class="theme-icon" src={ThemeIconSvg} alt="theme-icon" />
     </div>
   </div>

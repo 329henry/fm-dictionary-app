@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { TWord } from 'src/lib/types/types'
+  import type { TWord } from '$types/word-types'
 
   export let wordData: TWord
   const meaningList = wordData.meanings

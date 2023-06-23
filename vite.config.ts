@@ -17,14 +17,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      $components: path.resolve(__dirname, './src/components'),
-      $constants: path.resolve(__dirname, './src/constants'),
-      $feature: path.resolve(__dirname, './src/feature'),
-      $helpers: path.resolve(__dirname, './src/helpers'),
-      $routes: path.resolve(__dirname, './src/routes'),
-      $types: path.resolve(__dirname, './src/types'),
-      $utils: path.resolve(__dirname, './src/utils'),
-      $api: path.resolve(__dirname, './src/api')
+      $component: path.resolve(__dirname, './src/lib/component'),
+      $page: path.resolve(__dirname, './src/lib/page'),
+      $store: path.resolve(__dirname, './src/lib/store'),
+      $types: path.resolve(__dirname, './src/lib/types'),
+      $util: path.resolve(__dirname, './src/lib/util')
     }
   }
 })

@@ -1,9 +1,20 @@
 <script lang="ts">
   export let isChecked = false
+  export let handleToggle: (checked: boolean) => void
+
+  const onCheckboxChange = (event: Event) => {
+    const target = event.target as HTMLInputElement
+    isChecked = target.checked
+    handleToggle(target.checked)
+  }
 </script>
 
 <label class="switch">
-  <input type="checkbox" bind:checked={isChecked} />
+  <input
+    type="checkbox"
+    bind:checked={isChecked}
+    on:change={onCheckboxChange}
+  />
   <span class="slider" class:active={isChecked} />
 </label>
 

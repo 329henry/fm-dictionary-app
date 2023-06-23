@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ArrowDown from './assets/icon-arrow-down.svg'
+  import ArrowDown from '$component/SelectInput/assets/icon-arrow-down.svg'
 
   const optionList = [
     { value: 'San Serif', label: 'San Serif' },
