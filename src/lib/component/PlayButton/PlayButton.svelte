@@ -25,6 +25,7 @@
   on:click={playAudio}
   on:mouseenter={() => (isHover = true)}
   on:mouseleave={() => (isHover = false)}
+  on:touchstart={() => (isHover = false)}
 >
   {#if isHover}
     <img src={HoverPlayIcon} alt="hover-play-word-pronunciation" />

@@ -2,7 +2,6 @@
   import Toggle from '$component/Toggle/Toggle.svelte'
 
   import LogoSvg from '$component/TopBar/assets/logo.svg'
-  import ThemeIconSvg from '$component/TopBar/assets/icon-moon.svg'
   import SelectInput from '$component/SelectInput/SelectInput.svelte'
   import { theme } from '$store/theme-toggle'
   import MoonIcon from './MoonIcon.svelte'
