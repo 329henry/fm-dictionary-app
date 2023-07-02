@@ -64,8 +64,10 @@
 
   .source-container {
     display: flex;
-    color: #fff;
     font-size: 14px;
+    text-decoration: underline;
+    text-decoration-color: #e9e9e9;
+    padding-bottom: 12px;
 
     .source-title {
       padding-right: 20px;

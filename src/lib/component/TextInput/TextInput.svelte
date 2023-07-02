@@ -1,9 +1,12 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
+  import { theme } from '$store/theme-toggle'
   import SearchIcon from '$component/TextInput/assets/icon-search.svg'
 
   let inputValue = ''
   let isEmpty = false
+
+  $: isDarkTheme = $theme === 'dark'
 
   const dispatch = createEventDispatcher()
 
@@ -28,6 +31,7 @@
     <input
       class="text-field {isEmpty ? 'error' : ''}"
       type="text"
+      class:dark={isDarkTheme}
       bind:value={inputValue}
       on:keydown={onEnterSearch}
     />
@@ -58,13 +62,19 @@
   input {
     width: 100%;
     height: 100%;
-    border: 1px solid #1f1f1f;
+    border: none;
     border-radius: 12px;
     padding: 0 24px;
     font-size: 20px;
     font-weight: 700;
-    color: #fff;
     outline: none;
+    background: #f4f4f4;
+
+    &.dark {
+      background: #3b3b3b;
+      border: 1px solid #1f1f1f;
+      color: #fff;
+    }
 
     &:focus {
       border: 1px solid #a445ed;

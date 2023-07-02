@@ -51,9 +51,3 @@
 {:else if $searchQuery.isSuccess}
   <Content wordData={$searchQuery?.data[0]} />
 {/if}
-
-<style>
-  .light {
-    background-color: #fff;
-  }
-</style>

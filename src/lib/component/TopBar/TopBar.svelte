@@ -4,9 +4,11 @@
   import LogoSvg from '$component/TopBar/assets/logo.svg'
   import ThemeIconSvg from '$component/TopBar/assets/icon-moon.svg'
   import SelectInput from '$component/SelectInput/SelectInput.svelte'
+  import { theme } from '$store/theme-toggle'
+  import MoonIcon from './MoonIcon.svelte'
 
   export let handleToggle: (checked: boolean) => void
-  let isDarkTheme = true
+  $: isDarkTheme = $theme === 'dark'
 </script>
 
 <div class="top-container">
@@ -18,7 +20,9 @@
     <div class="vertical-line" />
     <div class="theme-switch">
       <Toggle isChecked={isDarkTheme} {handleToggle} />
-      <img class="theme-icon" src={ThemeIconSvg} alt="theme-icon" />
+      <div class="theme-icon">
+        <MoonIcon darkThemeColor={isDarkTheme ? '#a445ed' : '#838383'} />
+      </div>
     </div>
   </div>
 </div>

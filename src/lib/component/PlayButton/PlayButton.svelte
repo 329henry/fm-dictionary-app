@@ -1,11 +1,12 @@
 <script lang="ts">
   import type { TPhonetic } from '$types/word-types'
   import PlayIcon from './assets/icon-play.svg'
+  import HoverPlayIcon from './assets/icon-play-hover.svg'
 
   export let audioPathList: TPhonetic[]
 
   let audioPath: string
-  // const audioContext = new AudioContext()
+  let isHover = false
 
   audioPathList.forEach(element => {
     if (element.audio !== '') {
@@ -19,8 +20,17 @@
   }
 </script>
 
-<div class="icon-container" on:click={playAudio}>
-  <img src={PlayIcon} alt="play-word-pronunciation" />
+<div
+  class="icon-container"
+  on:click={playAudio}
+  on:mouseenter={() => (isHover = true)}
+  on:mouseleave={() => (isHover = false)}
+>
+  {#if isHover}
+    <img src={HoverPlayIcon} alt="hover-play-word-pronunciation" />
+  {:else}
+    <img src={PlayIcon} alt="play-word-pronunciation" />
+  {/if}
 </div>
 
 <style lang="scss">

@@ -1,5 +1,6 @@
 <script lang="ts">
   import ArrowDown from '$component/SelectInput/assets/icon-arrow-down.svg'
+  import { theme } from '$store/theme-toggle'
 
   const optionList = [
     { value: 'San Serif', label: 'San Serif' },
@@ -10,6 +11,7 @@
   let container: HTMLDivElement
   let selected = optionList[0].value
   let isOpenDropdown = false
+  $: isDarkTheme = $theme === 'dark'
 
   function toggleDropdown() {
     isOpenDropdown = !isOpenDropdown
@@ -41,7 +43,7 @@
     <img class="arrow-down" src={ArrowDown} alt="click-dropdown" />
   </div>
   {#if isOpenDropdown}
-    <div class="dropdown">
+    <div class="dropdown" class:dark={isDarkTheme}>
       {#each optionList as option}
         <div class="option" on:click={() => onClickOption(option.value)}>
           {option.value}
@@ -93,10 +95,14 @@
     top: 25px;
     right: 0px;
     padding: 24px;
-    background-color: #1f1f1f;
-    box-shadow: 0px 5px 30px #a445ed;
+    background-color: #fff;
+    box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     z-index: 1;
+
+    &.dark {
+      box-shadow: 0px 5px 30px #a445ed;
+    }
   }
 
   .option {

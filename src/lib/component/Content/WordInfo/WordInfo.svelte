@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { theme } from '$store/theme-toggle'
   import type { TWord } from '$types/word-types'
 
   export let wordData: TWord
+  $: isDarkTheme = $theme === 'dark'
   const meaningList = wordData.meanings
 </script>
 
@@ -9,7 +11,7 @@
   <div class="word-info-container">
     <div class="part-of-speech">
       <div class="pos-detail">{meaning.partOfSpeech}</div>
-      <hr />
+      <hr class:dark={isDarkTheme} />
     </div>
     <div class="meaning">
       <div class="meaning-title">Meaning</div>
@@ -61,7 +63,10 @@
   hr {
     width: 90%;
     border: none;
-    border-top: 1px solid #3a3a3a;
+    border-top: 1px solid #e9e9e9;
+    &.dark {
+      border-top: 1px solid #3a3a3a;
+    }
   }
 
   .meaning {
