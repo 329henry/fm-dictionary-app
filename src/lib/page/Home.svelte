@@ -5,6 +5,7 @@
   import type { TWord } from '$types/word-types'
   import Content from '$component/Content/Content.svelte'
   import { theme } from '$store/theme-toggle'
+  import NoDefinition from '$component/Content/NoDefinition/NoDefinition.svelte'
 
   $: inputValue = ''
   $: themeClass = $theme === 'dark' ? 'dark' : 'light'
