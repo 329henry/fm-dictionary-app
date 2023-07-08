@@ -10,17 +10,25 @@
   $: themeClass = $theme === 'dark' ? 'dark' : 'light'
 
   const searchWords = async () => {
-    const res = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
-    )
-    return await res.json()
+    try {
+      const res = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
+      )
+      if (res.status === 200) {
+        return await res.json()
+      } else {
+        throw Error()
+      }
+    } catch (error) {
+      throw new Error('no result')
+    }
   }
 
   $: searchQuery = createQuery<TWord[], Error>({
     queryKey: ['search', inputValue],
     queryFn: searchWords,
     enabled: inputValue !== '' && inputValue !== undefined,
-    staleTime: 1000 * 60
+    retry: false
   })
 
   const onClickSearch = (event: CustomEvent<string>) => {
@@ -47,7 +55,7 @@
 {#if $searchQuery.isLoading}
   Loading...
 {:else if $searchQuery.isError}
-  Error: {$searchQuery.error.message}
+  <NoDefinition />
 {:else if $searchQuery.isSuccess}
   <Content wordData={$searchQuery?.data[0]} />
 {/if}
