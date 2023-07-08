@@ -6,6 +6,7 @@
   import Content from '$component/Content/Content.svelte'
   import { theme } from '$store/theme-toggle'
   import NoDefinition from '$component/Content/NoDefinition/NoDefinition.svelte'
+  import { font } from '$store/font-select'
 
   $: inputValue = ''
   $: themeClass = $theme === 'dark' ? 'dark' : 'light'
@@ -46,10 +47,14 @@
       theme.set('light')
     }
   }
+
+  const handleSelect = (value: string) => {
+    font.set(value)
+  }
 </script>
 
 <div class={themeClass}>
-  <TopBar {handleToggle} />
+  <TopBar {handleToggle} {handleSelect} />
   <Input on:search={onClickSearch} />
 </div>
 

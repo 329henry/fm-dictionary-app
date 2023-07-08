@@ -2,12 +2,15 @@
   import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query'
   import Home from '$page/Home.svelte'
   import { theme } from '$store/theme-toggle'
+  import { font } from '$store/font-select'
 
   const queryClient = new QueryClient()
 
   $: $theme === 'dark'
     ? document.body.classList.add('dark')
     : document.body.classList.remove('dark')
+
+  $: document.body.style.fontFamily = $font
 </script>
 
 <QueryClientProvider client={queryClient}>

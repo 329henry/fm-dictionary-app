@@ -7,6 +7,8 @@
   import MoonIcon from './MoonIcon.svelte'
 
   export let handleToggle: (checked: boolean) => void
+  export let handleSelect: (value: string) => void
+
   $: isDarkTheme = $theme === 'dark'
 </script>
 
@@ -14,7 +16,7 @@
   <img class="main-logo" src={LogoSvg} alt="logo" />
   <div class="right-container">
     <div class="topography">
-      <SelectInput />
+      <SelectInput {handleSelect} />
     </div>
     <div class="vertical-line" />
     <div class="theme-switch">

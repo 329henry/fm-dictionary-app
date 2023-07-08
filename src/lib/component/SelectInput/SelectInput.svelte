@@ -3,13 +3,14 @@
   import { theme } from '$store/theme-toggle'
 
   const optionList = [
-    { value: 'San Serif', label: 'San Serif' },
-    { value: 'Serif', label: 'Serif' },
-    { value: 'Mono', label: 'Mono' }
+    { value: 'Inter', label: 'San Serif' },
+    { value: 'Lora', label: 'Serif' },
+    { value: 'Inconsolata', label: 'Mono' }
   ]
 
+  export let handleSelect: (value: string) => void
   let container: HTMLDivElement
-  let selected = optionList[0].value
+  let selected = optionList[0].label
   let isOpenDropdown = false
   $: isDarkTheme = $theme === 'dark'
 
@@ -17,8 +18,9 @@
     isOpenDropdown = !isOpenDropdown
   }
 
-  function onClickOption(value: string) {
-    selected = value
+  function onClickOption(option: { value: string; label: string }) {
+    selected = option.label
+    handleSelect(option.value)
     isOpenDropdown = false
   }
 
@@ -45,8 +47,8 @@
   {#if isOpenDropdown}
     <div class="dropdown" class:dark={isDarkTheme}>
       {#each optionList as option}
-        <div class="option" on:click={() => onClickOption(option.value)}>
-          {option.value}
+        <div class="option" on:click={() => onClickOption(option)}>
+          {option.label}
         </div>
       {/each}
     </div>
@@ -101,6 +103,7 @@
     z-index: 1;
 
     &.dark {
+      background-color: #050505;
       box-shadow: 0px 5px 30px #a445ed;
     }
   }
@@ -111,6 +114,10 @@
     font-size: 18px;
     font-weight: 700;
     text-align: left;
+
+    &:nth-child(1) {
+      font-family: 'Inter', sans-serif;
+    }
 
     &:nth-child(2) {
       font-family: 'Lora', serif;
