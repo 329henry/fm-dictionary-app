@@ -128,4 +128,14 @@
       font-family: 'Inconsolata', monospace;
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .select-container {
+      width: 98px;
+    }
+
+    .selected {
+      font-size: 14px;
+    }
+  }
 </style>

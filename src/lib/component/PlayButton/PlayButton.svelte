@@ -39,5 +39,15 @@
     width: 75px;
     height: 75px;
     cursor: pointer;
+
+    @media screen and (max-width: 767px) {
+      width: 48px;
+      height: 48px;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 </style>

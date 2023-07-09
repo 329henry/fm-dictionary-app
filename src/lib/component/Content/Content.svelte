@@ -12,12 +12,12 @@
     <div class="word-info">
       <div class="search-word">
         <div class="keyword">{wordData.word}</div>
-        <div class="phonetic">{wordData.phonetic}</div>
+        {#if wordData.phonetic}
+          <div class="phonetic">{wordData.phonetic}</div>
+        {/if}
       </div>
     </div>
-    <div class="play-button">
-      <PlayButton audioPathList={wordData.phonetics} />
-    </div>
+    <PlayButton audioPathList={wordData.phonetics} />
   </div>
   <WordInfo {wordData} />
   <hr />
@@ -80,6 +80,22 @@
       & > .source {
         padding-right: 9px;
       }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .keyword {
+      height: 39px;
+      font-size: 32px;
+    }
+
+    .phonetic {
+      font-size: 18px;
+    }
+
+    .source-container {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>

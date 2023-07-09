@@ -103,4 +103,35 @@
     color: #ff5252;
     font-size: 20px;
   }
+
+  @media screen and (max-width: 767px) {
+    .input-container {
+      margin: 32px auto 24px;
+    }
+
+    .input-row {
+      height: 48px;
+    }
+
+    input {
+      font-size: 16px;
+    }
+
+    .error-message {
+      font-size: 16px;
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 16px;
+      height: 16px;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 </style>

@@ -114,4 +114,18 @@
       color: #a445ed;
     }
   }
+
+  @media screen and (max-width: 767px) {
+    .meaning {
+      padding: 0px;
+    }
+
+    ul {
+      padding-inline-start: 20px;
+    }
+    .thesaurus {
+      padding: 0px 0px 20px;
+      font-size: 16px;
+    }
+  }
 </style>

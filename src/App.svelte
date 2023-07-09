@@ -24,6 +24,7 @@
     width: 100vw;
     max-width: 738px;
     height: calc(100vh - 2rem);
+    padding: 2rem 2rem 0;
   }
 
   :global(body) {
@@ -34,5 +35,11 @@
     background-color: #242424;
     color: rgba(255, 255, 255, 0.87);
     color-scheme: light dark;
+  }
+
+  @media screen and (max-width: 767px) {
+    main {
+      width: 90vw;
+    }
   }
 </style>

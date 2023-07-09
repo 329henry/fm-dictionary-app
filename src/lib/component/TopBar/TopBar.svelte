@@ -54,6 +54,10 @@
     height: 100%;
     background-color: #e9e9e9;
     margin: 0 26px;
+
+    @media screen and (max-width: 767px) {
+      margin: 0 16px;
+    }
   }
 
   .theme-switch {
@@ -64,5 +68,12 @@
   .theme-icon {
     width: 20px;
     height: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .main-logo {
+      width: 28px;
+      height: 32px;
+    }
   }
 </style>
