@@ -55,7 +55,7 @@
       right: 0;
       top: 0;
       bottom: 0;
-      background: #757575;
+      background: var(--gray-400, #757575);
       transition: 0.4s;
       border-radius: $thumb-size;
     }
@@ -67,15 +67,15 @@
       height: $thumb-size;
       top: 3px;
       left: 3px;
-      background: #fff;
-      box-shadow: 1px 1px 1px #000;
+      background: var(--white, #fff);
+      box-shadow: 1px 1px 1px var(--black, #050505);
       transition: 0.4s;
       border-radius: 50%;
     }
   }
 
   input:checked + .slider {
-    background: #a445ed;
+    background: var(--purple, #a445ed);
 
     &:before {
       opacity: 0;

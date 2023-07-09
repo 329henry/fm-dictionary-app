@@ -59,19 +59,19 @@
 
   .phonetic {
     font-size: 24px;
-    color: #8f19e8;
+    color: var(--purple, #a445ed);
   }
 
   .source-container {
     display: flex;
     font-size: 14px;
     text-decoration: underline;
-    text-decoration-color: #e9e9e9;
+    text-decoration-color: var(--gray-300, #e9e9e9);
     padding-bottom: 12px;
 
     .source-title {
       padding-right: 20px;
-      color: #757575;
+      color: var(--gray-400, #757575);
     }
 
     .source-content {

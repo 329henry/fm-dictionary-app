@@ -97,14 +97,14 @@
     top: 25px;
     right: 0px;
     padding: 24px;
-    background-color: #fff;
-    box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--white, #fff);
+    box-shadow: var(--light-box-shadow, 0px 5px 30px rgba(0, 0, 0, 0.1));
     border-radius: 16px;
     z-index: 1;
 
     &.dark {
       background-color: #050505;
-      box-shadow: 0px 5px 30px #a445ed;
+      box-shadow: var(--dark-box-shadow, 0px 5px 30px #a445ed);
     }
   }
 

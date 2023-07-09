@@ -63,9 +63,9 @@
   hr {
     width: 90%;
     border: none;
-    border-top: 1px solid #e9e9e9;
+    border-top: var(--hr-light, 1px solid #e9e9e9);
     &.dark {
-      border-top: 1px solid #3a3a3a;
+      border-top: var(--hr-dark, 1px solid #3a3a3a);
     }
   }
 
@@ -77,7 +77,7 @@
 
     .meaning-title {
       padding-bottom: 25px;
-      color: #757575;
+      color: var(--gray-400, #757575);
       font-size: 20px;
     }
 
@@ -88,7 +88,7 @@
       justify-content: flex-start;
 
       li::marker {
-        color: #8f19e8;
+        color: var(--purple, #a445ed);
       }
 
       li {
@@ -106,12 +106,12 @@
 
     .thesaurus-title {
       padding-right: 22px;
-      color: #757575;
+      color: var(--gray-400, #757575);
     }
 
     .thesaurus-word {
       font-weight: 700;
-      color: #a445ed;
+      color: var(--purple, #a445ed);
     }
   }
 

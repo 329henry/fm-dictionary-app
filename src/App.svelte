@@ -28,12 +28,12 @@
   }
 
   :global(body) {
-    background-color: #fff;
+    background-color: var(--white, #fff);
     transition: background-color 0.3s;
   }
   :global(body.dark) {
-    background-color: #242424;
-    color: rgba(255, 255, 255, 0.87);
+    background-color: var(--black, #050505);
+    color: var(--white, #fff);
     color-scheme: light dark;
   }
 

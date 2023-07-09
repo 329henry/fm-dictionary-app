@@ -33,6 +33,6 @@
 
   .description {
     font-size: 18px;
-    color: #757575;
+    color: (--gray-400, #757575);
   }
 </style>

@@ -68,20 +68,20 @@
     font-size: 20px;
     font-weight: 700;
     outline: none;
-    background: #f4f4f4;
+    background: var(--gray-200, #f4f4f4);
 
     &.dark {
       background: #3b3b3b;
-      border: 1px solid #1f1f1f;
-      color: #fff;
+      border: 1px solid var(--gray-700, #1f1f1f);
+      color: var(--white, #fff);
     }
 
     &:focus {
-      border: 1px solid #a445ed;
+      border: 1px solid var(--purple, #a445ed);
     }
 
     &.error {
-      border: 1px solid #ff5252;
+      border: var(--error-border, 1px solid #ff5252);
     }
   }
 
@@ -100,7 +100,7 @@
 
   .error-message {
     text-align: left;
-    color: #ff5252;
+    color: var(--cyan-red, #ff5252);
     font-size: 20px;
   }
 
