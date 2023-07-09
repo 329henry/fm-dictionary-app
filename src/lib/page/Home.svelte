@@ -58,7 +58,7 @@
   <Input on:search={onClickSearch} />
 </div>
 
-{#if $searchQuery.isLoading}
+{#if $searchQuery.isLoading && $searchQuery.isFetching}
   Loading...
 {:else if $searchQuery.isError}
   <NoDefinition />
