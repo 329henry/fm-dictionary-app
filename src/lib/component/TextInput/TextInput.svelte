@@ -20,7 +20,7 @@
   }
 
   const onEnterSearch = (event: KeyboardEvent) => {
-    if (event?.code === 'Enter') {
+    if (event?.key === 'Enter') {
       onSearch()
     }
   }
