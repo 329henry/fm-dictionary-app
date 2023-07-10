@@ -1,6 +1,7 @@
 <script lang="ts">
   import ArrowDown from '$component/SelectInput/assets/icon-arrow-down.svg'
   import { theme } from '$store/theme-toggle'
+  import { font } from '$store/font-select'
 
   const optionList = [
     { value: 'Inter', label: 'San Serif' },
@@ -9,9 +10,12 @@
   ]
 
   export let handleSelect: (value: string) => void
+
   let container: HTMLDivElement
-  let selected = optionList[0].label
   let isOpenDropdown = false
+
+  $: fontValue = optionList.find(option => option.value === $font)?.label
+  $: selected = fontValue ?? optionList[0].label
   $: isDarkTheme = $theme === 'dark'
 
   function toggleDropdown() {

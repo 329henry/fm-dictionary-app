@@ -40,6 +40,7 @@
   @media screen and (max-width: 767px) {
     main {
       width: 90vw;
+      padding: 2rem 1rem 0;
     }
   }
 </style>
